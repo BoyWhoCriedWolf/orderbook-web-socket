@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { WEB_SOCKET_API } from "../../../services/api-urls";
 import { API_KEYS } from "../../../services/api-config";
 
-const centrifuge = new Centrifuge(WEB_SOCKET_API.TEST_NET);
+const centrifuge = new Centrifuge(WEB_SOCKET_API.MAIN_NET);
 
 centrifuge.setToken(API_KEYS.PRIVATE_JWT);
 
