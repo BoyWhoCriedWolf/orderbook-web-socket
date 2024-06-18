@@ -2,7 +2,7 @@ import { Centrifuge } from "centrifuge";
 import { WEB_SOCKET_API } from "./api-urls";
 import { API_KEYS } from "./api-config";
 
-const centrifuge = new Centrifuge(WEB_SOCKET_API.TEST_NET);
+const centrifuge = new Centrifuge(WEB_SOCKET_API.MAIN_NET);
 
 centrifuge.setToken(API_KEYS.PRIVATE_JWT);
 
