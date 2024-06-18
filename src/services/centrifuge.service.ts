@@ -6,6 +6,8 @@ const centrifuge = new Centrifuge(WEB_SOCKET_API.TEST_NET);
 // Set JWT token for authentication
 const jwtToken = process.env.PRIVATE_JWT ?? "";
 
+console.log("jwtToken=>", jwtToken);
+
 centrifuge.setToken(jwtToken);
 
 centrifuge.connect();

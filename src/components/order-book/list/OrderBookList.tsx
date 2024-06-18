@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import centrifuge from "../../../services";
 const OrderBookList = () => {
   const init = () => {
-    console.log(centrifuge);
+    centrifuge.newSubscription("orderbook");
   };
 
   useEffect(() => {
