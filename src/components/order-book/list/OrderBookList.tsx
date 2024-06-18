@@ -11,14 +11,7 @@ const OrderBookList = () => {
       },
     });
 
-    orderbookSubscription.presence().then(
-      function (message) {
-        console.log(message);
-      },
-      function (err) {
-        console.log(err);
-      }
-    );
+    orderbookSubscription.subscribe();
   };
 
   useEffect(() => {
