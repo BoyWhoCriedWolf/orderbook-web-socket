@@ -8,7 +8,9 @@ const jwtToken = process.env.PRIVATE_JWT ?? "";
 
 console.log("jwtToken=>", jwtToken);
 
-centrifuge.setToken(jwtToken);
+centrifuge.setToken(
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MzY4OCIsImV4cCI6MTcyNjUwNzQwMn0.oOZV-92D_cVtaQt6MQpvm-ysjcSlDgH7HF_T0f_iYqo"
+);
 
 centrifuge.connect();
 
