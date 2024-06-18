@@ -1,33 +1,32 @@
-import {
-  SubscribedContext,
-  SubscribingContext,
-  SubscriptionStateContext,
-} from "centrifuge";
-import { useEffect } from "react";
+import { SubscribedContext } from "centrifuge";
+import { useEffect, useState } from "react";
 import centrifuge from "../../../services";
+import { Orderbook } from "../../../services/types/orderbook.types";
+import OrderBookPriceTable from "../price-table";
 const OrderBookList = () => {
-  const init = () => {
-    const orderbookSubscription =
-      centrifuge.newSubscription("orderbook:BTC-USD");
-
-    orderbookSubscription.subscribe();
-
-    orderbookSubscription.on("state", (ctx: SubscriptionStateContext) => {
-      console.log("state", ctx);
-    });
-    orderbookSubscription.on("subscribed", (ctx: SubscribedContext) => {
-      console.log("subscribed", ctx);
-    });
-    orderbookSubscription.on("subscribing", (ctx: SubscribingContext) => {
-      console.log("subscribing", ctx);
-    });
-  };
+  const [data, setData] = useState<Orderbook>();
 
   useEffect(() => {
-    init();
+    const subscription = centrifuge.newSubscription("orderbook:BTC-USD");
+
+    subscription.subscribe();
+
+    subscription.on("subscribed", (ctx: SubscribedContext) => {
+      //   console.log("subscribed", ctx);
+      setData(ctx.data);
+    });
+
+    return () => {
+      centrifuge.removeSubscription(subscription);
+    };
   }, []);
 
-  return <div>OrderBookList</div>;
+  return (
+    <div>
+      <OrderBookPriceTable data={data?.asks ?? []} />
+      <OrderBookPriceTable data={data?.bids ?? []} />
+    </div>
+  );
 };
 
 export default OrderBookList;
