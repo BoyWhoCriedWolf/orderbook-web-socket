@@ -5,7 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const buildTime = process.env.REACT_APP_BUILD_TIME ?? "";
-console.log(new Date(parseInt(buildTime, 10) * 1000).toLocaleString());
+console.log(
+  new Date(parseInt(buildTime, 10) * 1000).toLocaleString(),
+  buildTime
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
