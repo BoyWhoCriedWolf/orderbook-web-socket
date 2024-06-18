@@ -1,9 +1,7 @@
 module.exports = {
   webpack: {
-    resolve: {
-      fallback: {
-        path: require.resolve("path-browserify"),
-      },
+    alias: {
+      path: require.resolve("path-browserify"),
     },
   },
 };
