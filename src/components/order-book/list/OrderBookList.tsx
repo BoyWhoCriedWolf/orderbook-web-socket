@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import centrifuge from "../../../services";
 const OrderBookList = () => {
   const init = () => {
-    centrifuge.newSubscription("orderbook", {
+    const orderbookSubscription = centrifuge.newSubscription("orderbook", {
       getData: async (ctx) => {
         console.log(ctx);
         return new Promise<any>((resolve, reject) => {
@@ -10,14 +10,15 @@ const OrderBookList = () => {
         });
       },
     });
-    centrifuge.newSubscription("orderbook:BTC-USD", {
-      getData: async (ctx) => {
-        console.log(ctx);
-        return new Promise<any>((resolve, reject) => {
-          resolve(ctx);
-        });
+
+    orderbookSubscription.presence().then(
+      function (message) {
+        console.log(message);
       },
-    });
+      function (err) {
+        console.log(err);
+      }
+    );
   };
 
   useEffect(() => {
