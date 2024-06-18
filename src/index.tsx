@@ -10,6 +10,7 @@ console.log(new Date(parseInt(buildTime, 10) * 1000).toLocaleString());
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <App />
