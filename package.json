@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@centrifuge/centrifuge-js": "^0.8.0",
     "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -12,6 +11,7 @@
     "@types/node": "^16.18.99",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "centrifuge": "^5.2.0",
     "path-browserify": "^1.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
