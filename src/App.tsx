@@ -4,7 +4,7 @@ import OrderBookList from "./components/order-book/list";
 function App() {
   return (
     <div className="bg-slate-950 text-white">
-      <OrderBookList />;
+      <OrderBookList />
     </div>
   );
 }
