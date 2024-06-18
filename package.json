@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@centrifuge/centrifuge-js": "^0.8.0",
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,9 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "react-app-rewired": "^2.2.1",
     "tailwindcss": "^3.4.4"
   }
 }
