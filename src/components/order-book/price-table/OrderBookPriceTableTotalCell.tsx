@@ -15,7 +15,9 @@ const OrderBookPriceTableTotalCell: FC<
           "absolute top-0 left-0 h-full bg-opacity-25 " +
           (color === "red" ? "bg-green-500" : "bg-red-500")
         }
-        style={{ width: total ? Math.min(100, 100 * (value / total)) : 0 }}
+        style={{
+          width: total ? `${Math.min(100, 100 * (value / total))}%` : 0,
+        }}
       ></div>
       <div className="relative">{decimalFormatter(value)}</div>
     </div>
