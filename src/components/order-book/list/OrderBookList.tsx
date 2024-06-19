@@ -32,7 +32,7 @@ const OrderBookList = () => {
               ...(s?.asks ?? []).filter(
                 (t) =>
                   !(ctx.data.asks ?? []).some(
-                    (s: Array<string>) => s?.[0] === t?.[0]
+                    (s: Array<string>) => parseFloat(s?.[0]) === parseFloat(t?.[0])
                   )
               ),
               ...(ctx.data.asks ?? []),
@@ -41,7 +41,7 @@ const OrderBookList = () => {
               ...(s?.bids ?? []).filter(
                 (t) =>
                   !(ctx.data.bids ?? []).some(
-                    (s: Array<string>) => s?.[0] === t?.[0]
+                    (s: Array<string>) => parseFloat(s?.[0]) === parseFloat(t?.[0])
                   )
               ),
               ...(ctx.data.bids ?? []),
