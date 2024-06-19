@@ -24,7 +24,7 @@ const OrderBookPriceTable: FC<
               <tr key={itemIndex}>
                 <td
                   align="left"
-                  className={type === "buy" ? "text-red-500" : "text-green-500"}
+                  className={type === "buy" ? "text-green-500" : "text-red-500"}
                 >
                   {decimalFormatter(price, 0)}
                 </td>
