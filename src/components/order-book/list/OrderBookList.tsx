@@ -23,8 +23,8 @@ const OrderBookList = () => {
 
   return (
     <div>
+      <OrderBookPriceTable data={(data?.bids ?? []).reverse()} />
       <OrderBookPriceTable data={data?.asks ?? []} />
-      <OrderBookPriceTable data={data?.bids ?? []} />
     </div>
   );
 };
