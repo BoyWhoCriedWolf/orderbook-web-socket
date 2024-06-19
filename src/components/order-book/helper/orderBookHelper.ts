@@ -11,7 +11,7 @@ export const calculateOrderBookData = (
       t += parseFloat(amount);
       return [price, amount, t];
     })
-    .slice(-10);
+    // .slice(-10);
 
   return calculatedData;
 };

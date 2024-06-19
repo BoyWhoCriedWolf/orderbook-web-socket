@@ -29,11 +29,21 @@ const OrderBookList = () => {
           ({
             ...(s ?? {}),
             asks: calculateOrderBookData([
-              ...(s?.asks ?? []),
+              ...(s?.asks ?? []).filter(
+                (t) =>
+                  !(ctx.data.asks ?? []).some(
+                    (s: Array<string>) => s?.[0] === t?.[0]
+                  )
+              ),
               ...(ctx.data.asks ?? []),
             ]),
             bids: calculateOrderBookData([
-              ...(s?.bids ?? []),
+              ...(s?.bids ?? []).filter(
+                (t) =>
+                  !(ctx.data.bids ?? []).some(
+                    (s: Array<string>) => s?.[0] === t?.[0]
+                  )
+              ),
               ...(ctx.data.bids ?? []),
             ]),
           } as Orderbook)
@@ -47,8 +57,8 @@ const OrderBookList = () => {
 
   return (
     <div className="w-full">
-      <OrderBookPriceTable data={data?.asks ?? []} type="sell" />
-      <OrderBookPriceTable data={data?.bids ?? []} type="buy" />
+      <OrderBookPriceTable data={(data?.asks ?? []).slice(-10)} type="sell" />
+      <OrderBookPriceTable data={(data?.bids ?? []).slice(-10)} type="buy" />
     </div>
   );
 };
