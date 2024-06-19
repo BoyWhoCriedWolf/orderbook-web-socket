@@ -3,6 +3,8 @@ import React, { FC, PropsWithChildren } from "react";
 const OrderBookPriceTable: FC<
   PropsWithChildren<{ data?: Array<Array<string>> }>
 > = ({ data = [] }) => {
+  let t = 0;
+
   return (
     <div>
       <table>
@@ -16,11 +18,13 @@ const OrderBookPriceTable: FC<
         <tbody>
           {data.map((item, itemIndex) => {
             const [price, amount] = item;
+            t += parseFloat(amount);
+
             return (
               <tr key={itemIndex}>
                 <td>{price}</td>
                 <td>{amount}</td>
-                <td>{parseFloat(price) * parseFloat(amount)}</td>
+                <td>{t}</td>
               </tr>
             );
           })}
