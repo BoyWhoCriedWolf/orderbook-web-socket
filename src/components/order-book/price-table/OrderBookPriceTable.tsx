@@ -1,9 +1,18 @@
 import React, { FC, PropsWithChildren } from "react";
 
 const OrderBookPriceTable: FC<
-  PropsWithChildren<{ data?: Array<Array<string>> }>
-> = ({ data = [] }) => {
+  PropsWithChildren<{ data?: Array<Array<string>>; type?: "buy" | "sell" }>
+> = ({ data = [], type = "buy" }) => {
   let t = 0;
+
+  const calculatedData = data.map((item) => {
+    const [price, amount] = item;
+    t += parseFloat(amount);
+    return [price, amount, t];
+  });
+
+  const formattedData =
+    type === "buy" ? calculatedData : calculatedData.reverse();
 
   return (
     <div className="w-full">
@@ -16,15 +25,19 @@ const OrderBookPriceTable: FC<
           </tr>
         </thead>
         <tbody>
-          {data.map((item, itemIndex) => {
-            const [price, amount] = item;
-            t += parseFloat(amount);
+          {formattedData.map((item, itemIndex) => {
+            const [price, amount, total] = item;
 
             return (
               <tr key={itemIndex}>
-                <td align="left">{price}</td>
+                <td
+                  align="left"
+                  className={type === "buy" ? "text-red-500" : "text-green-500"}
+                >
+                  {price}
+                </td>
                 <td align="right">{amount}</td>
-                <td align="right">{t}</td>
+                <td align="right">{total}</td>
               </tr>
             );
           })}
