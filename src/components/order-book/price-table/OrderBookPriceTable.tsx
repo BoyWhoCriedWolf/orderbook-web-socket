@@ -8,7 +8,7 @@ const OrderBookPriceTable: FC<
   const formattedData = type === "buy" ? data : data.reverse();
 
   const maxTotal = formattedData.reduce(
-    (ret, cur) => Math.max(ret, cur?.[2] ? parseFloat(cur?.[2]) : 0),
+    (ret, cur) => ret + (cur?.[2] ? parseFloat(cur?.[2]) : 0),
     0
   );
 
