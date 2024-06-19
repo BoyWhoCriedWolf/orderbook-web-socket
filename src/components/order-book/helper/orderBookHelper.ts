@@ -8,7 +8,7 @@ export const calculateOrderBookData = (
     .sort((a, b) => parseFloat(a?.[0]) - parseFloat(b?.[0]))
     .map((item, itemIndex) => {
       const [price, amount] = item;
-      t = t && !itemIndex ? t : t + parseFloat(amount);
+      t += parseFloat(amount);
       return [price, amount, t];
     })
     .slice(-10);
