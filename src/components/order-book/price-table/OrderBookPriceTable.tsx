@@ -8,7 +8,7 @@ const OrderBookPriceTable: FC<
 
   return (
     <div className="w-full">
-      <table>
+      <table className="w-full">
         <thead>
           <tr>
             <th align="left">Price</th>

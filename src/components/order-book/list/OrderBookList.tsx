@@ -46,7 +46,7 @@ const OrderBookList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full">
       <OrderBookPriceTable data={data?.asks ?? []} type="sell" />
       <OrderBookPriceTable data={data?.bids ?? []} type="buy" />
     </div>
