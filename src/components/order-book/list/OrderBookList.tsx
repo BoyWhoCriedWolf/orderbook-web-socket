@@ -17,7 +17,7 @@ const OrderBookList = () => {
     });
 
     subscription.on("publication", (ctx: PublicationContext) => {
-        console.log("publication", ctx); 
+      console.log("publication", ctx);
     });
 
     return () => {
@@ -27,7 +27,7 @@ const OrderBookList = () => {
 
   return (
     <div>
-      <OrderBookPriceTable data={(data?.bids ?? []).reverse()} />
+      <OrderBookPriceTable data={data?.bids ?? []} />
       <OrderBookPriceTable data={data?.asks ?? []} />
     </div>
   );
