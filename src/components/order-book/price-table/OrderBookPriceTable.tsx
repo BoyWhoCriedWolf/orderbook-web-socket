@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren } from "react";
+import { decimalFormatter } from "../../../utils/number-utils";
 
 const OrderBookPriceTable: FC<
   PropsWithChildren<{ data?: Array<Array<string>>; type?: "buy" | "sell" }>
@@ -25,10 +26,10 @@ const OrderBookPriceTable: FC<
                   align="left"
                   className={type === "buy" ? "text-red-500" : "text-green-500"}
                 >
-                  {price}
+                  {decimalFormatter(price)}
                 </td>
-                <td align="right">{amount}</td>
-                <td align="right">{total}</td>
+                <td align="right">{decimalFormatter(amount)}</td>
+                <td align="right">{decimalFormatter(total)}</td>
               </tr>
             );
           })}
