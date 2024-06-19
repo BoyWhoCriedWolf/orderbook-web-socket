@@ -6,7 +6,7 @@ const OrderBookPriceTable: FC<
   let t = 0;
 
   return (
-    <div>
+    <div className="w-full">
       <table>
         <thead>
           <tr>
