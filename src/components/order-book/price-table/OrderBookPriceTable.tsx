@@ -22,9 +22,9 @@ const OrderBookPriceTable: FC<
 
             return (
               <tr key={itemIndex}>
-                <td>{price}</td>
-                <td>{amount}</td>
-                <td>{t}</td>
+                <td align="left">{price}</td>
+                <td align="right">{amount}</td>
+                <td align="right">{t}</td>
               </tr>
             );
           })}
