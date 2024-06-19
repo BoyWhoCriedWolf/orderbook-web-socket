@@ -10,7 +10,6 @@ const OrderBookPriceTableTotalCell: FC<
 > = ({ total = 0, value = 0, color = "red" }) => {
   return (
     <div className="relative w-full p-1">
-      <div className="relative">{decimalFormatter(value)}</div>
       <div
         className={
           "absolute top-0 left-0 h-full bg-opacity-25 " +
@@ -18,6 +17,7 @@ const OrderBookPriceTableTotalCell: FC<
         }
         style={{ width: total ? Math.min(100, 100 * (value / total)) : 0 }}
       ></div>
+      <div className="relative">{decimalFormatter(value)}</div>
     </div>
   );
 };
