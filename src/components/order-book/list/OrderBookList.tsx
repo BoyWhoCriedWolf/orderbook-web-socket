@@ -28,14 +28,14 @@ const OrderBookList = () => {
         (s?: Orderbook) =>
           ({
             ...(s ?? {}),
-            asks: calculateOrderBookData([
-              ...(s?.asks ?? []),
-              ...(ctx.data.asks ?? []),
-            ]),
-            bids: calculateOrderBookData([
-              ...(s?.bids ?? []),
-              ...(ctx.data.bids ?? []),
-            ]),
+            asks: calculateOrderBookData(
+              [...(s?.asks ?? []), ...(ctx.data.asks ?? [])],
+              s?.asks?.[0]?.[2] ? parseFloat(s?.asks?.[0]?.[2]) : 0
+            ),
+            bids: calculateOrderBookData(
+              [...(s?.bids ?? []), ...(ctx.data.bids ?? [])],
+              s?.bids?.[0]?.[2] ? parseFloat(s?.bids?.[0]?.[2]) : 0
+            ),
           } as Orderbook)
       );
     });
