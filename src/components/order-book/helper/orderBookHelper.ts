@@ -3,9 +3,9 @@ export const calculateOrderBookData = (data: Array<Array<string>>) => {
 
   const calculatedData = data
     .sort((a, b) => parseFloat(a?.[0]) - parseFloat(b?.[0]))
-    .map((item) => {
+    .map((item, itemIndex) => {
       const [price, amount] = item;
-      t += parseFloat(amount);
+      t = t && !itemIndex ? t : t + parseFloat(amount);
       return [price, amount, t];
     })
     .slice(-10);
