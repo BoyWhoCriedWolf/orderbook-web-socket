@@ -1,4 +1,4 @@
-import { SubscribedContext } from "centrifuge";
+import { PublicationContext, SubscribedContext } from "centrifuge";
 import { useEffect, useState } from "react";
 import centrifuge from "../../../services";
 import { Orderbook } from "../../../services/types/orderbook.types";
@@ -14,6 +14,10 @@ const OrderBookList = () => {
     subscription.on("subscribed", (ctx: SubscribedContext) => {
       //   console.log("subscribed", ctx);
       setData(ctx.data);
+    });
+
+    subscription.on("publication", (ctx: PublicationContext) => {
+        console.log("publication", ctx); 
     });
 
     return () => {
