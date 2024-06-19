@@ -26,7 +26,7 @@ const OrderBookPriceTable: FC<
                   align="left"
                   className={type === "buy" ? "text-red-500" : "text-green-500"}
                 >
-                  {decimalFormatter(price)}
+                  {decimalFormatter(price, 0)}
                 </td>
                 <td align="right">{decimalFormatter(amount)}</td>
                 <td align="right">{decimalFormatter(total)}</td>
