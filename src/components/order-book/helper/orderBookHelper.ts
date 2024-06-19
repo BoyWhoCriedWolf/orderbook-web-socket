@@ -1,5 +1,5 @@
 export const calculateOrderBookData = (data: Array<Array<string>>) => {
-  let t = parseFloat(data?.[0]?.[2]) ?? 0;
+  let t = data?.[0]?.[2] ? parseFloat(data?.[0]?.[2]) : 0;
 
   const calculatedData = data
     .sort((a, b) => parseFloat(a?.[0]) - parseFloat(b?.[0]))
